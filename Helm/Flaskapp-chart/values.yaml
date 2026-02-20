@@ -1,0 +1,16 @@
+image:
+  repository: shanbhagrahul/flaskapp
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: LoadBalancer   # Flask app exposed externally
+  port: 5000
+
+mysql:
+  host: "mydb-mysql"   # MySQL service IP (can be overridden)
+  user: "root"
+  password: "admin"
+  database: "default_db"

@@ -1,0 +1,22 @@
+appVersion: "1.16.0"
+ubuntu@ip-172-31-46-100:~/two-tier-flask-app/helm/mysql-chart$ cat values.yaml
+image:
+  repository: mysql
+  tag: "5.7"
+  pullPolicy: IfNotPresent
+
+mysqlRootPassword: admin
+mysqlDatabase: default_db
+mysqlUser: admin
+mysqlPassword: admin
+
+service:
+  type: ClusterIP
+  port: 3306
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 256Mi
+  hostPath: /home/ubuntu/two-tier-flask-app/mysqldata
+
